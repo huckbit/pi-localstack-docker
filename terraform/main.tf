@@ -3,7 +3,8 @@ resource "docker_volume" "localstack" {
 }
 
 resource "docker_image" "localstack" {
-  name = "localstack/localstack:latest"
+  name         = "localstack/localstack:latest"
+  keep_locally = true
 }
 
 resource "docker_container" "localstack_pi" {

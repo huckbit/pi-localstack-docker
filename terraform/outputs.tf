@@ -17,3 +17,13 @@ output "volume_name" {
   description = "Docker volume used for LocalStack persistence"
   value       = docker_volume.localstack.name
 }
+
+output "auth_token_set" {
+  description = "Confirms whether the LocalStack auth token was provided"
+  value       = var.localstack_auth_token != "" ? "yes" : "no"
+}
+
+output "pi_host" {
+  description = "Pi host being targeted"
+  value       = var.pi_host
+}
