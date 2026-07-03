@@ -16,10 +16,11 @@ No manual Docker commands. No docker compose. Infrastructure as code end to end.
 
 ## Architecture
 
-```
-Mac (Terraform) ──SSH──► Raspberry Pi 4B ──► Docker daemon ──► LocalStack container
-                                                                      │
-                                                              port 4566 (gateway)
+```mermaid
+graph LR
+    A[Mac<br/>Terraform] -->|SSH| B[Raspberry Pi 4B<br/>192.168.x.x]
+    B --> C[Docker daemon]
+    C --> D[LocalStack container<br/>port 4566]
 ```
 
 Terraform connects to the Pi's Docker daemon via SSH — no unencrypted TCP port exposed, no manual tunnel required.
