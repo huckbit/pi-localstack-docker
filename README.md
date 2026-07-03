@@ -1,4 +1,9 @@
 # Pi Services — Terraform Docker Provider
+![Terraform CI](https://github.com/huckbit/pi-localstack-docker/actions/workflows/terraform-ci.yml/badge.svg)
+![Terraform](https://img.shields.io/badge/Terraform-1.12-7B42BC?logo=terraform)
+![LocalStack](https://img.shields.io/badge/LocalStack-latest-00D1B2?logo=amazonaws)
+![Portainer](https://img.shields.io/badge/Portainer-CE-13BEF9?logo=portainer)
+![Platform](https://img.shields.io/badge/Platform-Raspberry%20Pi%204B-C51A4A?logo=raspberrypi)
 
 Provisions containerized services on a remote Raspberry Pi 4B using Terraform's [`kreuzwerker/docker`](https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs) provider over SSH.
 
