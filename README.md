@@ -18,9 +18,23 @@ No manual Docker commands. No docker compose. Infrastructure as code end to end.
 
 ```mermaid
 graph LR
-    A[Mac<br/>Terraform] -->|SSH| B[Raspberry Pi 4B<br/>192.168.x.x]
-    B --> C[Docker daemon]
-    C --> D[LocalStack container<br/>port 4566]
+    A["💻 Mac\nTerraform CLI"] -->|"SSH tunnel\nkreuzwerker/docker provider"| B["🍓 Raspberry Pi 4B\nDebian Trixie · aarch64"]
+    B --> C["🐳 Docker daemon\ntcp + ssh"]
+    C --> D["📦 LocalStack container\nlocalstack/localstack:latest"]
+    D --> E["🌐 Gateway\nport 4566"]
+
+    subgraph Pi ["Raspberry Pi 4B"]
+        B
+        C
+        D
+        E
+        F["💾 docker volume\nlocalstack-volume"]
+        G["🔌 Docker socket\n/var/run/docker.sock"]
+        D --- F
+        D --- G
+    end
+
+    style Pi fill:#f9f9f9,stroke:#ccc,stroke-width:1px
 ```
 
 Terraform connects to the Pi's Docker daemon via SSH — no unencrypted TCP port exposed, no manual tunnel required.
