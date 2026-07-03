@@ -123,18 +123,17 @@ terraform destroy
 
 No additional variables required beyond `pi_host`.
 
-## Terraform concepts demonstrated
+## Terraform concepts
 
-- `kreuzwerker/docker` provider with remote SSH host
-- Modular Terraform configurations (multiple independent service modules)
+- `kreuzwerker/docker` provider connecting to a remote Docker host via SSH
 - `docker_image`, `docker_container`, `docker_volume` resources
-- Sensitive variable handling via `TF_VAR_` environment variables
 - Named volume vs host path volume mounts
 - Resource dependencies via implicit references (`docker_image.image_id`)
 - Variable validation blocks
+- Sensitive variable handling via `TF_VAR_` environment variables
 
 ## Security notes
 
-- Docker daemon is accessed exclusively over SSH — no TCP port 2375 exposed externally
-- Auth token passed via environment variable, never committed to source control
-- `.gitignore` excludes all state files, `.terraform/` directory, and `.env` files
+- Docker daemon accessed exclusively over SSH — no unencrypted TCP port exposed
+- Sensitive values passed via environment variables, never committed to source control
+- `.gitignore` excludes all state files and `.terraform/` directory
