@@ -21,6 +21,7 @@ output "volume_name" {
 output "auth_token_set" {
   description = "Confirms whether the LocalStack auth token was provided"
   value       = var.localstack_auth_token != "" ? "yes" : "no"
+  sensitive   = true
 }
 
 output "pi_host" {
