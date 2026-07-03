@@ -99,9 +99,3 @@ terraform destroy
 - Docker daemon is accessed exclusively over SSH — no TCP port 2375 exposed externally
 - Auth token passed via environment variable, never committed to source control
 - `.gitignore` excludes all state files, `.terraform/` directory, and `.env` files
-
-## Part of
-
-This project is part of my [Terraform Associate 004](https://developer.hashicorp.com/certifications/infrastructure-automation) study portfolio, alongside AWS SAA-C03 certification and ISO 27001 / SOC 2 compliance engineering study.
-
-See the full portfolio at [github.com/huckbit/toolbox](https://github.com/huckbit/toolbox).
